@@ -1,12 +1,16 @@
 var main = document.getElementById("main")
 
+var numberPad = document.createElement("div")
+numberPad.id = "numberPad"
+main.appendChild(numberPad)
+
 function createCalculator(){
-    console.log("???")
-    for(var i = 0; i < 10; i++){
+    var buttons = ["AC","±","%","÷","6","7","9","×","4","5","6","−","1","2","3","+","0",".","="]
+    for(var i = 0; i < buttons.length; i++){
         var button = document.createElement("div")
-        button.innerText = i
+        button.innerText = buttons[i]
         button.classList.add("num")
-        main.appendChild(button)
+        numberPad.appendChild(button)
     }
 }
 

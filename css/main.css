@@ -6,6 +6,11 @@ body{
     margin: auto;
     display: flex;
 }
+#numberPad{
+    display: flex;
+    flex-wrap: wrap;
+}
 .num{
     border: solid;
+    flex-basis: 30%;
 }
