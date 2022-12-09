@@ -1,7 +1,11 @@
 var main = document.getElementById("main")
+var screen = document.createElement("div")
+screen.innerText = "00000"
 
 var numberPad = document.createElement("div")
 numberPad.id = "numberPad"
+
+main.appendChild(screen)
 main.appendChild(numberPad)
 
 function createCalculator(){
@@ -10,8 +14,13 @@ function createCalculator(){
         var button = document.createElement("div")
         button.innerText = buttons[i]
         button.classList.add("num")
+        button.addEventListener("click",clickEvent)
         numberPad.appendChild(button)
     }
 }
 
+function clickEvent(e){
+    var input = e.target.innerText
+    screen.innerText += input
+}
 createCalculator();
