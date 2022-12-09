@@ -10,36 +10,23 @@ numberPad.id = "numberPad";
 main.appendChild(screen);
 main.appendChild(numberPad);
 
+var buttons = ["C","±","%","÷","6","7","9","×","4","5","6","−","1","2","3","+","0",".","=",];
+
 function createCalculator() {
-    var buttons = [
-        "C",
-        "±",
-        "%",
-        "÷",
-        "6",
-        "7",
-        "9",
-        "×",
-        "4",
-        "5",
-        "6",
-        "−",
-        "1",
-        "2",
-        "3",
-        "+",
-        "0",
-        ".",
-        "=",
-    ];
-
-    for (var i = 0; i < buttons.length; i++) {
-        var button = document.createElement("div");
-        button.innerText = buttons[i];
-        button.classList.add("button");
-        button.addEventListener("click", clickEvent);
-
-        numberPad.appendChild(button);
+    var index = 0
+    for (var i = 0; i < 4; i++) {
+        var row = document.createElement("div")
+        row.classList.add("column")
+        for(var j = 0; j < 4; j++){
+            var button = document.createElement("div");
+            button.innerText = buttons[index];
+            button.classList.add("button");
+            button.addEventListener("click", clickEvent);
+            
+            index++
+            row.appendChild(button);
+        }
+        numberPad.appendChild(row)
     }
 }
 

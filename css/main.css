@@ -6,6 +6,7 @@ body {
 }
 #main {
   margin: auto;
+  width:fit-content;
   display: flex;
   flex-direction: column;
   background-color: grey;
@@ -16,6 +17,7 @@ body {
   flex-wrap: wrap;
   font-size: 36px;
   padding: 10px;
+  flex-direction: column;
 }
 #screen {
   font-size: 48px;
@@ -25,4 +27,8 @@ body {
 }
 .button {
   border: none;
+}
+.column{
+  display: flex;
+  flex-direction: row;
 }
