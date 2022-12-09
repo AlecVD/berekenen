@@ -1,35 +1,61 @@
-var main = document.getElementById("main")
-var screen = document.createElement("div")
-screen.id = "screen"
-screen.innerText = "0"
+var main = document.getElementById("main");
 
-var numberPad = document.createElement("div")
-numberPad.id = "numberPad"
+var screen = document.createElement("div");
+screen.id = "screen";
+screen.innerText = "0";
 
-main.appendChild(screen)
-main.appendChild(numberPad)
+var numberPad = document.createElement("div");
+numberPad.id = "numberPad";
 
-function createCalculator(){
-    var buttons = ["AC","±","%","÷","6","7","9","×","4","5","6","−","1","2","3","+","0",".","="]
-    for(var i = 0; i < buttons.length; i++){
-        var button = document.createElement("div")
-        button.innerText = buttons[i]
-        button.classList.add("num")
-        button.addEventListener("click",clickEvent)
-        numberPad.appendChild(button)
+main.appendChild(screen);
+main.appendChild(numberPad);
+
+function createCalculator() {
+    var buttons = [
+        "C",
+        "±",
+        "%",
+        "÷",
+        "6",
+        "7",
+        "9",
+        "×",
+        "4",
+        "5",
+        "6",
+        "−",
+        "1",
+        "2",
+        "3",
+        "+",
+        "0",
+        ".",
+        "=",
+    ];
+
+    for (var i = 0; i < buttons.length; i++) {
+        var button = document.createElement("div");
+        button.innerText = buttons[i];
+        button.classList.add("button");
+        button.addEventListener("click", clickEvent);
+
+        numberPad.appendChild(button);
     }
 }
 
-function clickEvent(e){
-    var input = e.target.innerText
-    switch(true){
-        case input == "AC":
-            screen.innerText = "0"
+var lastKey = "";
+
+function clickEvent(e) {
+    var input = e.target.innerText;
+    switch (true) {
+        case input == "C":
+            screen.innerText = "0";
             break;
         default:
-            screen.innerText += input
+            screen.innerText += input;
             break;
     }
+    lastKey = input;
 }
 
-createCalculator()
+createCalculator();
