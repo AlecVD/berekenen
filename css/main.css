@@ -5,6 +5,7 @@ body{
 #main{
     margin: auto;
     display: flex;
+    flex-direction: column;
 }
 #numberPad{
     display: flex;
