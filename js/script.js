@@ -10,7 +10,7 @@ numberPad.id = "numberPad";
 main.appendChild(screen);
 main.appendChild(numberPad);
 
-var buttons = ["C","±","%","÷","6","7","9","×","4","5","6","−","1","2","3","+","0",".","=",];
+var buttons =    ["C","6","4","1","±","7","5","2","%","9","6","3","÷","×","−","+",]
 
 function createCalculator() {
     var index = 0
@@ -28,6 +28,7 @@ function createCalculator() {
         }
         numberPad.appendChild(row)
     }
+    //0 line
 }
 
 var lastKey = "";

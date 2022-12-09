@@ -17,7 +17,7 @@ body {
   flex-wrap: wrap;
   font-size: 36px;
   padding: 10px;
-  flex-direction: column;
+  flex-direction: row;
 }
 #screen {
   font-size: 48px;
@@ -26,9 +26,9 @@ body {
   padding-right: 5%;
 }
 .button {
-  border: none;
+  padding:10px
 }
 .column{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
