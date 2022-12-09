@@ -1,6 +1,7 @@
 var main = document.getElementById("main")
 var screen = document.createElement("div")
-screen.innerText = "00000"
+screen.id = "screen"
+screen.innerText = "0"
 
 var numberPad = document.createElement("div")
 numberPad.id = "numberPad"
@@ -21,6 +22,14 @@ function createCalculator(){
 
 function clickEvent(e){
     var input = e.target.innerText
-    screen.innerText += input
+    switch(true){
+        case input == "AC":
+            screen.innerText = "0"
+            break;
+        default:
+            screen.innerText += input
+            break;
+    }
 }
-createCalculator();
+
+createCalculator()
