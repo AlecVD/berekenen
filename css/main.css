@@ -1,17 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body{
     font-family: 'Open Sans';
+    color: #D5D8DC;
+    background-color: #154360;
 }
 #main{
     margin: auto;
     display: flex;
     flex-direction: column;
+    background-color: grey;
+    border-radius: 10px;
 }
 #numberPad{
     display: flex;
     flex-wrap: wrap;
+    font-size: 36px;
+}
+#screen{
+    font-size: 48px;
+    border-bottom:solid;
+    text-align: right;
+    padding-right: 5%;
 }
 .num{
-    border: solid;
-    flex-basis: 30%;
+    border: none;
+    
 }
