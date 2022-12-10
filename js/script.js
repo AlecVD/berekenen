@@ -73,20 +73,21 @@ function clickEvent(e) {
     var input = e.target.innerText;
     switch (true) {
         case input == "C":
-            screen.innerText = "0";
+            screen.innerText = "0"
+            lastNum = ""
             break;
-        case input == "+":
-            add()
+        case input == "+" && lastNum != "":
+            compute(screen.innerText,lastNum,)
             break;
         default:
-            screen.innerText += input;
+            screen.innerText += input
             break;
     }
     console.log("ran?")
     lastKey = input;
 }
 
-function add(){
+function compute(x,y,operator){
     console.log("add")
     if(lastNum == ""){
         lastNum = screen.innerText
