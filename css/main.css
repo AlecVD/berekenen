@@ -28,9 +28,9 @@ h1{
   border-top-left-radius: 10px;
 }
 .button {
+  width: 40px;
   font-size: 36px;
-  padding:10px;
-
+  text-align: center;
 }
 .column{
   display: flex;
@@ -38,8 +38,13 @@ h1{
 }
 .bottomRow{
   display: flex;
-
+  justify-content: flex-end;
   background-color: #4D5656;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+}
+#zero{
+  font-size: 36px;
+  text-align: center;
+  flex-grow: 1;
 }

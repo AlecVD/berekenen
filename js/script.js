@@ -40,15 +40,29 @@ function createCalculator() {
     main.appendChild(bottomRow)
     bottomRow.classList.add("bottomRow")
     bottomRow.style.width = main.style.width
+    bottomRow.style.borderTop = "Solid #212F3C"
 
-    var bot = ["0",".","="]
-    for(var i = 0; i < 3; i++){
-        var element = document.createElement("div")
-        element.innerHTML = bot[i]
-        element.classList.add("button")
-        bottomRow.appendChild(element)
-    }
-    
+    var button = document.createElement("div")
+    button.innerHTML = "0"
+    button.id = "zero"
+    button.addEventListener("click", clickEvent);
+
+    bottomRow.appendChild(button)
+
+    button = document.createElement("div")
+    button.innerHTML = "."
+    button.classList.add("button")
+    button.style.borderRight = "Solid #212F3C"
+    button.style.borderLeft = "Solid #212F3C"
+    button.addEventListener("click", clickEvent);
+    bottomRow.appendChild(button)
+
+    button = document.createElement("div")
+    button.innerHTML = "="
+    button.classList.add("button")
+    button.addEventListener("click", clickEvent);
+    bottomRow.appendChild(button)
+
 }
 
 var lastKey = ""
