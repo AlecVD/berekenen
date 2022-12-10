@@ -10,7 +10,7 @@ numberPad.id = "numberPad";
 main.appendChild(screen);
 main.appendChild(numberPad);
 
-var buttons =    ["C","6","4","1","±","7","5","2","%","9","6","3","÷","×","−","+",]
+var buttons = ["C","8","4","1","±","7","5","2","%","9","6","3","÷","×","−","+",]
 
 function createCalculator() {
     var index = 0
@@ -19,7 +19,6 @@ function createCalculator() {
         row.classList.add("column")
         if(i < 3){
             row.style.borderRight = "Solid #212F3C"
-
         }
         for(var j = 0; j < 4; j++){
             var button = document.createElement("div");
@@ -36,10 +35,25 @@ function createCalculator() {
         }
         numberPad.appendChild(row)
     }
-    //0 line
+
+    var bottomRow = document.createElement("div")
+    main.appendChild(bottomRow)
+    bottomRow.classList.add("bottomRow")
+    bottomRow.style.width = main.style.width
+
+    var bot = ["0",".","="]
+    for(var i = 0; i < 3; i++){
+        var element = document.createElement("div")
+        element.innerHTML = bot[i]
+        element.classList.add("button")
+        bottomRow.appendChild(element)
+    }
+    
 }
 
-var lastKey = "";
+var lastKey = ""
+var lastNum = ""
+var lastmult = ""
 
 function clickEvent(e) {
     var input = e.target.innerText;
@@ -47,11 +61,25 @@ function clickEvent(e) {
         case input == "C":
             screen.innerText = "0";
             break;
+        case input == "+":
+            add()
+            break;
         default:
             screen.innerText += input;
             break;
     }
+    console.log("ran?")
     lastKey = input;
 }
 
+function add(){
+    console.log("add")
+    if(lastNum == ""){
+        lastNum = screen.innerText
+        screen.innerText = "0"
+        return
+    }
+    screen.innerText = parseFloat(lastNum) + parseFloat(screen.innerText)
+    lastNum = ""
+}
 createCalculator();
