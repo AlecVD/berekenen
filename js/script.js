@@ -17,11 +17,19 @@ function createCalculator() {
     for (var i = 0; i < 4; i++) {
         var row = document.createElement("div")
         row.classList.add("column")
+        if(i < 3){
+            row.style.borderRight = "Solid #212F3C"
+
+        }
         for(var j = 0; j < 4; j++){
             var button = document.createElement("div");
             button.innerText = buttons[index];
             button.classList.add("button");
             button.addEventListener("click", clickEvent);
+
+            if(index%4 != 3){
+                button.style.borderBottom = "Solid #212F3C"
+            }
             
             index++
             row.appendChild(button);

@@ -1,32 +1,39 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 body {
   font-family: "Open Sans";
-  color: #d5d8dc;
+  color: white;
   background-color: #154360;
+}
+h1{
+  text-align: center;
 }
 #main {
   margin: auto;
   width:fit-content;
   display: flex;
   flex-direction: column;
-  background-color: grey;
-  border-radius: 10px;
 }
 #numberPad {
   display: flex;
   flex-wrap: wrap;
   font-size: 36px;
-  padding: 10px;
   flex-direction: row;
+
+  background-color: #4D5656;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 #screen {
   font-size: 48px;
-  border-bottom: solid;
   text-align: right;
   padding-right: 5%;
+
+  background-color: #212F3C;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .button {
-  padding:10px
+  padding:10px;
 }
 .column{
   display: flex;
