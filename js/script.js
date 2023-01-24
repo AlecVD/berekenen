@@ -76,8 +76,8 @@ function clickEvent(e) {
             screen.innerText = "0"
             lastNum = ""
             break;
-        case input == "+" && lastNum != "":
-            compute(screen.innerText,lastNum,)
+        case input == "+":
+            compute(screen.innerText,lastNum,"add")
             break;
         default:
             screen.innerText += input
@@ -89,12 +89,13 @@ function clickEvent(e) {
 
 function compute(x,y,operator){
     console.log("add")
-    if(lastNum == ""){
+    if(y == ""){
         lastNum = screen.innerText
         screen.innerText = "0"
         return
     }
     screen.innerText = parseFloat(lastNum) + parseFloat(screen.innerText)
-    lastNum = ""
+    //screen.innerText = "parseFloat(lastNum) + parseFloat(screen.innerText)"
+    
 }
 createCalculator();
