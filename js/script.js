@@ -65,42 +65,89 @@ function createCalculator() {
 
 }
 
-var displayValue = screen.innerText
+var value = screen.innerText
+var lastValue = null
 var operator = null
-var opClicked = false;
-var curFloat = null
-
-var lastKey = ""
-var lastNum = ""
-var lastmult = ""
+var opClicked = false
 
 function clickEvent(e) {
     var input = e.target.innerText;
     switch (true) {
         case input == "C":
-            screen.innerText = "0"
-            lastNum = ""
+            clear()
             break;
         case input == "+":
-            compute(screen.innerText,lastNum,"add")
+            opClick(input)
+            break;
+        case input == "-":
+            opClick(input)
+            break;
+        case input == "/":
+            opClick(input)
+            break;        
+        case input == "x":
+            opClick(input)
+            break;
+        case input == "=":
+            alert("equa")
+            compute()
+            operator = null
             break;
         default:
-            screen.innerText += input
+            numberClick(input)
             break;
     }
     console.log("ran?")
-    lastKey = input;
+}
+function opClick(op){
+    if(operator !== null){
+        compute();
+    }
+    operator = op
+    lastValue = value
+    opClicked = true
+}
+function numberClick(x){
+    if(opClicked){
+        lastValue = value
+        value = ""
+        opClicked = false
+    }
+    if(value === "0"){
+        value = ""
+    }
+    value += x
+    update();
+}
+function compute(){
+    lastFloat = parseFloat(lastValue)
+    curFloat = parseFloat(value)
+    switch (operator) {
+        case "+":
+          value = (lastFloat + curFloat).toString();
+          break;
+        case "-":
+          value = (lastFloat - curFloat).toString();
+          break;
+        case "×":
+          value = (lastFloat * curFloat).toString();
+          break;
+        case "÷":
+          value = (lastFloat / curFloat).toString();
+          break;
+        default:
+          return;
+      }
+      update();
+}
+function update(){
+    screen.innerText = value
 }
 
-function compute(x,y,operator){
-    console.log("add")
-    if(y == ""){
-        lastNum = screen.innerText
-        screen.innerText = "0"
-        return
-    }
-    screen.innerText = parseFloat(lastNum) + parseFloat(screen.innerText)
-    //screen.innerText = "parseFloat(lastNum) + parseFloat(screen.innerText)"
-    
+function clear(){
+    value = "0"
+    lastValue = null
+    operator = null
+    update();
 }
 createCalculator();
