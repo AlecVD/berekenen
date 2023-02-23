@@ -65,6 +65,11 @@ function createCalculator() {
 
 }
 
+var displayValue = screen.innerText
+var operator = null
+var opClicked = false;
+var curFloat = null
+
 var lastKey = ""
 var lastNum = ""
 var lastmult = ""
